@@ -1,4 +1,4 @@
-make.exe --dry-run --keep-going --print-directory
+make.exe --dry-run --always-make --keep-going --print-directory
 make: Entering directory 'c:/Users/mrbarnable/Projects/wvatha_codec'
 echo -D WIN32 -D AMD64
 make: Leaving directory 'c:/Users/mrbarnable/Projects/wvatha_codec'

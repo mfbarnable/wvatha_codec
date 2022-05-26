@@ -1,3 +1,8 @@
 {
-    "makefile.extensionOutputFolder": "./.vscode"
+    "makefile.extensionOutputFolder": "./.vscode",
+    "files.associations": {
+        "unistd.h": "c",
+        "windows.h": "c",
+        "util_test.h": "c"
+    }
 }

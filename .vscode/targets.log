@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu May 26 11:50:07 2022
+# Make data base, printed on Fri May 27 00:02:17 2022
 
 # Variables
 
@@ -18,12 +18,14 @@ FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 SYSTEMDRIVE = C:
 # environment
 LC_ALL = C
+# makefile (from 'Makefile', line 2)
+TEST_C_SOURCES := test/main_test.c test/util_test.c
 # environment
 USERPROFILE = C:\Users\mrbarnable
 # environment
 LOCALAPPDATA = C:\Users\mrbarnable\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-088bbe39-2c4c-4b12-9de3-06e109d133e9-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-8f99f6b8-a0f8-48c5-9ee4-c842351cf19d-sock
 # environment
 MINIO_ROOT_PASSWORD = 23783ole
 # environment
@@ -43,7 +45,7 @@ GOPATH = C:\Users\mrbarnable\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_27556_YYIJHCUYQVFZRXAD
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_25184_ONCOMIASEXJFPCJK
 # environment
 MINIO_ROOT_USER = mrbarnable
 # environment
@@ -72,6 +74,8 @@ LANG = C
 TMP = C:\Users\MRBARN~1\AppData\Local\Temp
 # default
 .INCLUDE_DIRS = .
+# makefile (from 'Makefile', line 4)
+TEST_C_OBJ := test/main_test.o test/util_test.o
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -101,7 +105,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 27556
+VSCODE_PID = 25184
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -192,7 +196,7 @@ NUMBER_OF_PROCESSORS = 4
 PUBLIC = C:\Users\Public
 # environment
 APPDATA = C:\Users\mrbarnable\AppData\Roaming
-# makefile (from 'Makefile', line 17)
+# makefile (from 'Makefile', line 24)
 CFLAGS := -D WIN32 -D AMD64
 # environment
 HOMEDRIVE = C:
@@ -220,7 +224,7 @@ DXSDK_DIR = C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\
 SUFFIXES := 
 # environment
 ALLUSERSPROFILE = C:\ProgramData
-# makefile (from 'Makefile', line 5)
+# makefile (from 'Makefile', line 12)
 detected_OS := Windows
 # environment
 SESSIONNAME = Console
@@ -228,6 +232,8 @@ SESSIONNAME = Console
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
 # environment
 PROCESSOR_REVISION = 9e0b
+# makefile (from 'Makefile', line 6)
+MAIN_C_SOURCES := src/codec_info.c src/err_type.c src/util.c
 # environment
 WIX = C:\Program Files (x86)\WiX Toolset v3.11\
 # environment
@@ -235,7 +241,7 @@ CHOCOLATEYTOOLSLOCATION = C:\tools
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 11, GenuineIntel
 # variable set hash-table stats:
-# Load=111/1024=11%, Rehash=0, Collisions=13/146=9%
+# Load=114/1024=11%, Rehash=0, Collisions=14/150=9%
 
 # Pattern-specific Variable Values
 
@@ -243,9 +249,11 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 11, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/mrbarnable/Projects/wvatha_codec, mtime 1653552475): 10 files, no impossibilities.
+# src (key c:/Users/mrbarnable/Projects/wvatha_codec/src, mtime 1653569298): 8 files, no impossibilities.
+# . (key c:/Users/mrbarnable/Projects/wvatha_codec, mtime 1653584459): 15 files, no impossibilities.
+# test (key c:/Users/mrbarnable/Projects/wvatha_codec/test, mtime 1653572673): 5 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 28 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -257,15 +265,23 @@ os_detect:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 61):
+#  recipe to execute (from 'Makefile', line 68):
 	@echo ${CFLAGS}
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-26 11:12:53
+#  Last modified 2022-05-26 17:09:21
 #  File has been updated.
 #  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 92):
+	rm -f $(TEST_C_OBJ)
 
 # Not a target:
 .DEFAULT:
@@ -280,20 +296,42 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
+test:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 85):
+	@echo $(TEST_C_SOURCES)
+	@echo $(MAIN_C_SOURCES)
+	gcc -Wall $(TEST_C_SOURCES) $(MAIN_C_SOURCES) -o test.exe -Isrc -Isrc/ -I/src -I. $(CFLAGS)
+
+.PHONY: test clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ls_test:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 71):
+	@echo ${TEST_C_OBJ}
+
 # files hash-table stats:
-# Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
+# Load=9/1024=1%, Rehash=0, Collisions=0/24=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 14 / storage = 110 B / avg = 7 B
-# current buf: size = 8162 B / used = 110 B / count = 14 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 298 B / avg = 9 B
+# current buf: size = 8162 B / used = 298 B / count = 31 / avg = 9 B
 
-# strcache performance: lookups = 19 / hit rate = 26%
+# strcache performance: lookups = 51 / hit rate = 39%
 # hash-table stats:
-# Load=14/8192=0%, Rehash=0, Collisions=0/19=0%
-# Finished Make data base on Thu May 26 11:50:07 2022
+# Load=31/8192=0%, Rehash=0, Collisions=0/51=0%
+# Finished Make data base on Fri May 27 00:02:17 2022
 
  

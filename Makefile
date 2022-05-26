@@ -1,3 +1,10 @@
+# Test files
+TEST_C_SOURCES := $(wildcard test/*.c)
+
+TEST_C_OBJ := $(TEST_C_SOURCES:.c=.o)
+
+MAIN_C_SOURCES := $(wildcard src/*.c)
+
 # Check OS
 CFLAGS 				:=
 
@@ -59,3 +66,27 @@ endif
 
 os_detect:
 	@echo ${CFLAGS}
+
+ls_test:
+	@echo ${TEST_C_OBJ}
+
+
+
+# $(TEST_C_OBJ): $(TEST_C_SOURCES)
+# 	gcc -c -o $@ $< $(CFLAGS) -Isrc -D WIN_32_LEAN_AND_MEAN -mwindows
+
+# test: $(TEST_C_OBJ)
+# 	@echo $(TEST_C_OBJ)
+# 	gcc -o $@ $^ $(CFLAGS) -Isrc  -D WIN_32_LEAN_AND_MEAN -mwindows
+
+.PHONY:test
+
+test:
+	@echo $(TEST_C_SOURCES)
+	@echo $(MAIN_C_SOURCES)
+	gcc -Wall $(TEST_C_SOURCES) $(MAIN_C_SOURCES) -o test.exe -Isrc -Isrc/ -I/src -I. $(CFLAGS)
+
+.PHONY: clean
+
+clean:
+	rm -f $(TEST_C_OBJ)
