@@ -16,22 +16,20 @@ wvatha_err get_working_dir_test() {
 
 wvatha_err get_base_path_test() {
     char *path = "src\\main\\jans.c";
-    char base[256];
-    wvatha_err result = get_base(path, base);
-    if (result != 0) {
+    char *base = get_base(path);
+    if (base == NULL) {
         printf("error on get_working_dir()\n");
-        exit(result);
+        exit(-1);
     }
-    char tbase[256];
-
-    result = get_base(base, tbase);
-    if (result != 0) {
+    char *second_base = get_base(base);
+    if (second_base == NULL) {
         printf("error on get_working_dir()\n");
-        exit(result);
+        exit(-1);
     }
     printf("get_base(): base path is %s\n", base);
-    printf("get_base(): base path is %s\n", tbase);
-
+    printf("get_base(): base path is %s\n", second_base);
+    free(base); base = 0;
+    free(second_base); second_base = 0;
     return 0;
 }
 

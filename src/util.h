@@ -4,6 +4,6 @@
 
 
 wvatha_err get_working_dir(char wd[]);
-wvatha_err get_base(char *path, char *base_path);
+char *get_base(char *path);
 
 #endif // _UTIL_H

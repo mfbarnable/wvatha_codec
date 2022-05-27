@@ -1,2 +1,5 @@
 THIRD_PARTY
 *.exe
+.vscode
+.vscode/settings.json
+.vscode/targets.log

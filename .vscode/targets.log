@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri May 27 00:02:17 2022
+# Make data base, printed on Fri May 27 11:29:47 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ USERPROFILE = C:\Users\mrbarnable
 # environment
 LOCALAPPDATA = C:\Users\mrbarnable\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-8f99f6b8-a0f8-48c5-9ee4-c842351cf19d-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-8c248752-5a8e-4195-b051-19040769faf7-sock
 # environment
 MINIO_ROOT_PASSWORD = 23783ole
 # environment
@@ -45,7 +45,7 @@ GOPATH = C:\Users\mrbarnable\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_25184_ONCOMIASEXJFPCJK
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_24752_YZXPJLWWMGRQETYJ
 # environment
 MINIO_ROOT_USER = mrbarnable
 # environment
@@ -105,7 +105,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 25184
+VSCODE_PID = 24752
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -250,7 +250,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 11, GenuineIntel
 # Directories
 
 # src (key c:/Users/mrbarnable/Projects/wvatha_codec/src, mtime 1653569298): 8 files, no impossibilities.
-# . (key c:/Users/mrbarnable/Projects/wvatha_codec, mtime 1653584459): 15 files, no impossibilities.
+# . (key c:/Users/mrbarnable/Projects/wvatha_codec, mtime 1653605668): 15 files, no impossibilities.
 # test (key c:/Users/mrbarnable/Projects/wvatha_codec/test, mtime 1653572673): 5 files, no impossibilities.
 
 # 28 files, no impossibilities in 3 directories.
@@ -332,6 +332,6 @@ ls_test:
 # strcache performance: lookups = 51 / hit rate = 39%
 # hash-table stats:
 # Load=31/8192=0%, Rehash=0, Collisions=0/51=0%
-# Finished Make data base on Fri May 27 00:02:17 2022
+# Finished Make data base on Fri May 27 11:29:47 2022
 
  

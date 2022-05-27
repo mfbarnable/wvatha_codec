@@ -1,7 +1,10 @@
 #include "util.h"
 #include <string.h>
-
+#define NULL_TERM '\0'
 #ifdef WIN32
+#define WINDOWS_PATH_DELIM '\\'
+#define MAX_PATH_LENGTH 260 
+#define UNROLL_INDEX(a) (a - 1)
 #include <windows.h>
 
 //Returns the last Win32 error, in string format. Returns an empty string if there is no error.
@@ -33,25 +36,25 @@ wvatha_err get_working_dir(char wd[]) {
     if (NULL == wd) {
         return err_empty_buffer;
     }
-    const unsigned long maxDir = 1024;
-    char currentDir[maxDir];
-    GetCurrentDirectory(maxDir, currentDir);
+    char currentDir[MAX_PATH_LENGTH];
+    GetCurrentDirectory(MAX_PATH_LENGTH, currentDir);
     strcpy(wd, currentDir);
     return 0;
 }
 
-wvatha_err get_base(char *path, char *base_path) {
-    const char delim = '\\';
+// Caller free
+char *get_base(char *path) {
     int len = strlen(path);
-    for (int i = len - 1; i >= 0; i--) {
-        if (delim == path[i]) {
-            memset(base_path, 0, sizeof(base_path));
-            strncpy(base_path, path, i + 1);
-            base_path[i + 1] = '\0';
-            return 0;
+    for (int i = UNROLL_INDEX(len); i >= 0; i--) {
+        if (WINDOWS_PATH_DELIM == path[i]) {
+            char *base_path = malloc(i);
+            memset(base_path, 0, i);
+            strncpy(base_path, path, i);
+            base_path[i] = NULL_TERM;
+            return base_path;
         } 
     }
-    return err_char_nf;
+    return NULL;
 }
 
 #elif OSX
